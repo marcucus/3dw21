@@ -6,11 +6,7 @@ use App\Http\Requests;
 
 class MonControleur extends Controller
 {
-    public function retourneNouvellePage() {
-    return view('nouvellepage'); 
-    }
-
-    public function retournePageExemple() {
+    public function retourneMembreCss() {
         $nom = 'Picard';
         $prenom = 'Jean-Luc';
         return view('pages_site/membrescss',compact('nom','prenom')); }
