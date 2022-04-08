@@ -34,6 +34,18 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::get('admin/verify/{id}', 'App\Http\Controllers\AdminController@verify');
+
+Route::get('admin/approuveadmin/{id}', 'App\Http\Controllers\AdminController@approuveadmin');
+
+Route::get('admin/delete/{id}', 'App\Http\Controllers\AdminController@delete');
+
+Route::get('/admin','App\Http\Controllers\AdminController@index')->name('admin');
+
 Route::get('/identite','App\Http\Controllers\ControleurMembres@identite');
 Route::get('/protege','App\Http\Controllers\ControleurMembres@acces_protege')
 ->middleware('auth');
+
+Route::group(['middleware' => ['auth']], function() {
+    Route::get('/logout', 'LogoutController@perform')->name('logout.perform');
+ });
