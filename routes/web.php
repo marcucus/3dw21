@@ -15,10 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('nouvellepage','App\Http\Controllers\MonControleur@retourneNouvellePage');
 Route::get('membres', 'App\Http\Controllers\ControleurMembres@index');
-
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'App\Http\Controllers\ControleurMembres@index');
 
 Route::get('/hello', function () {
     echo '<h1>Bonjour !</h1>';
